@@ -1,13 +1,14 @@
 // src/app/(lang)/[locale]/layout.tsx
 import type { ReactNode } from "react";
 
-export default function LocaleLayout(props: any) {
-  const { children, params } = props as {
-    children: ReactNode;
-    params: { locale: "fa" | "en" | "fr" };
-  };
-  const isFa = params.locale === "fa";
+type LocaleParams = { locale: "fa" | "en" | "fr" };
+type LocaleLayoutProps = Readonly<{
+  children: ReactNode;
+  params: LocaleParams;
+}>;
 
+export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  const isFa = params.locale === "fa";
   return (
     <div
       dir={isFa ? "rtl" : "ltr"}
