@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --accent: rgb(206,165,24); }
+
+/* Local Persian font */
+@font-face {
+  font-family: "MjCordoba";
+  src: url("/fonts/Mj_Cordoba.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-sans { font-family: var(--font-sans), ui-sans-serif, system-ui; }
+.font-serif{ font-family: var(--font-serif), Georgia, serif; }
+.font-fa   { font-family: "MjCordoba", system-ui, sans-serif; }
+
+/* BNazanin-like fallback stack */
+.bnazanin { font-family: "B Nazanin", "BNazanin", "MjCordoba", tahoma, sans-serif; }
+
+/* Accent color utilities */
+.text-accent { color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+.hover\:text-accent:hover { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+
+html {
+    scroll-behavior: smooth;
+  }
+
+/* Ensure list looks clean in RTL */
+.bnazanin ul { list-style: none; padding: 0; margin: 0; }
+  /* mobile bottom; desktop top-right with safe-areas */
+./* Mobile: bottom-right; Desktop (md+): top-right — both safe-area aware */
+.menu-anchor{
+  position: fixed;
+  z-index: 12000;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+}
+@media (min-width: 768px){
+  .menu-anchor{
+    bottom: auto;
+    top: max(1rem, env(safe-area-inset-top));
+  }
+}
+.mjcordoba {
+  font-family: "MJ Cordoba", serif;
+}
