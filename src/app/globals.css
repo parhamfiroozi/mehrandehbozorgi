@@ -4,10 +4,11 @@
 
 :root { --accent: rgb(206,165,24); }
 
-/* Local Persian font */
 @font-face {
   font-family: "MjCordoba";
-  src: url("/fonts/Mj_Cordoba.TTF") format("truetype");
+  src:
+    url("/fonts/Mj_Cordoba.woff2") format("woff2"),   /* if available */
+    url("/fonts/Mj_Cordoba.ttf") format("truetype");  /* ensure exact case */
   font-weight: 400;
   font-style: normal;
   font-display: swap;
