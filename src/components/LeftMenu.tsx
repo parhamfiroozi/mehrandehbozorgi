@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+// ❌ removed: import { motion, AnimatePresence } from "framer-motion";
 
 export default function LeftMenu() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -106,7 +106,6 @@ export default function LeftMenu() {
         >
           <nav className="bnazanin w-full max-w-[1200px] bg-white/85 backdrop-blur-[2px] md:bg-transparent md:backdrop-blur-0 rounded-2xl md:rounded-none px-4 sm:px-6 md:px-0 py-6 md:py-0 shadow-xl md:shadow-none mx-auto md:mx-0">
             <ul className="text-right leading-tight space-y-4 sm:space-y-5 md:space-y-6">
-              {/* LINKED to slide index 1 (second slide) */}
               <li
                 ref={firstLinkRef}
                 tabIndex={0}
@@ -126,8 +125,8 @@ export default function LeftMenu() {
                 onClick={() => {
                   window.dispatchEvent(
                     new CustomEvent<number>("vp:goTo", { detail: 2 })
-                  ); // go to slide #3
-                  setIsOpen(false); // close menu
+                  );
+                  setIsOpen(false);
                 }}
               >
                 شربت خانه سنتی
