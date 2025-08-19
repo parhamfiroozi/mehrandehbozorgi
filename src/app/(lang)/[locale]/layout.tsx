@@ -1,7 +1,9 @@
 // src/app/(lang)/[locale]/layout.tsx
 import type { ReactNode } from "react";
 
-type LocaleParams = { locale: "fa" | "en" | "fr" };
+// CHANGE THIS LINE: Broaden the type from a specific union to string.
+type LocaleParams = { locale: string };
+
 type LocaleLayoutProps = Readonly<{
   children: ReactNode;
   params: LocaleParams;
