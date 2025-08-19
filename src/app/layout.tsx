@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
+// src/app/layout.tsx
 import "./globals.css";
-import { Inter, Playfair_Display } from "next/font/google";
-import Navbar from "../components/Navbar"; // ⬅️ add this (from app/ to components/)
+import { fontSans, fontFa, fontCordoba } from "./fonts";
+import Navbar from "../components/Navbar";
 import LeftMenu from "../components/LeftMenu";
-import Head from "next/head"; // Make sure to import the `Head` component
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-});
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mehrandeh Bozorgi",
@@ -23,16 +17,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`bnazanin ${inter.variable} ${playfair.variable}`}>
-        {/* Head tag with favicon */}
-        <Head>
-          <link rel="icon" href="/logo1.png" type="image/png" />
-          <meta name="theme-color" content="#ffffff" />
-        </Head>
-        {/* Navbar and LeftMenu */}
+      <body
+        className={[
+          fontFa.className, // 🟩 BNazanin as the default font-family
+          fontSans.variable, // optional: keep CSS var for English
+          fontCordoba.variable, // optional: keep CSS var for headings
+        ].join(" ")}
+      >
         <Navbar />
         <LeftMenu />
-        {children} {/* Render child components here */}
+        {children}
       </body>
     </html>
   );

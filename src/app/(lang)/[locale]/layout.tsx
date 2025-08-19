@@ -1,23 +1,18 @@
 // src/app/(lang)/[locale]/layout.tsx
 import type { ReactNode } from "react";
 
-// CHANGE THIS LINE: Broaden the type from a specific union to string.
-type LocaleParams = { locale: string };
-
-type LocaleLayoutProps = Readonly<{
+export default function LocaleLayout({
+  children,
+  params,
+}: {
   children: ReactNode;
-  params: LocaleParams;
-}>;
-
-export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  params: { locale: string };
+}) {
   const isFa = params.locale === "fa";
+
   return (
-    <div
-      dir={isFa ? "rtl" : "ltr"}
-      data-locale={params.locale}
-      className={isFa ? "font-fa" : "font-sans"}
-    >
-      {children}
-    </div>
+    <html lang={params.locale} dir={isFa ? "rtl" : "ltr"}>
+      <body className={isFa ? "font-fa" : "font-sans"}>{children}</body>
+    </html>
   );
 }
