@@ -1,6 +1,5 @@
-// src/app/layout.tsx
 import "./globals.css";
-import { fontSans, fontFa, fontCordoba } from "./fonts";
+import { fontFa, fontCordoba } from "./fonts";
 import Navbar from "../components/Navbar";
 import LeftMenu from "../components/LeftMenu";
 import type { Metadata } from "next";
@@ -19,9 +18,8 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body
         className={[
-          fontFa.className, // 🟩 BNazanin as the default font-family
-          fontSans.variable, // optional: keep CSS var for English
-          fontCordoba.variable, // optional: keep CSS var for headings
+          fontFa.className, // ✅ BNazanin as actual default font-family
+          fontCordoba.variable, // ✅ expose Cordoba as CSS var
         ].join(" ")}
       >
         <Navbar />

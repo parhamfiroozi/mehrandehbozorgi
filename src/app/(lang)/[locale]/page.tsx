@@ -1,5 +1,6 @@
 "use client";
 
+import { fontCordoba } from "@/app/fonts";
 import VerticalPager from "@/components/VerticalPager";
 import SplitHeroSlide from "@/components/SplitHeroSlide";
 import { restaurantMenu } from "@/data/menu";
@@ -59,8 +60,11 @@ export default function Home() {
       className="relative h-screen w-full overflow-hidden bg-black"
     >
       {/* Centered "بزودی" Text - Positioned closer to the top */}
+
       <div className="flex flex-col items-center justify-center h-full">
-        <div className="text-[clamp(24px,5vw,60px)] text-white font-bold mb-6">
+        <div
+          className={`${fontCordoba.className} text-[clamp(24px,5vw,60px)] text-white font-bold mb-6`}
+        >
           بزودی
         </div>
       </div>

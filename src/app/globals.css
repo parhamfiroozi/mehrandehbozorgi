@@ -2,51 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme */
 :root { --accent: rgb(206,165,24); }
 
+/* ---- Fonts from /public/fonts ----
+   Ensure these files exist (case-sensitive):
+   /public/fonts/BNazanin.woff2
+   /public/fonts/BNazanin.ttf
+   /public/fonts/MJ_Cordoba.woff2
+   /public/fonts/MJ_Cordoba.ttf
+*/
+
+/* BNazanin */
 @font-face {
-  font-family: "MjCordoba";
+  font-family: "BNazanin";
   src:
-    url("/fonts/Mj_Cordoba.woff2") format("woff2"),   /* if available */
-    url("/fonts/Mj_Cordoba.ttf") format("truetype");  /* ensure exact case */
+    url("/fonts/BNazanin.woff2") format("woff2"),
+    url("/fonts/BNazanin.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-.font-sans { font-family: var(--font-sans), ui-sans-serif, system-ui; }
-.font-serif{ font-family: var(--font-serif), Georgia, serif; }
-.font-fa   { font-family: "MjCordoba", system-ui, sans-serif; }
+/* MJ Cordoba */
+@font-face {
+  font-family: "MJCordoba";
+  src:
+    url("/fonts/MJ_Cordoba.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-/* BNazanin-like fallback stack */
-.bnazanin { font-family: "B Nazanin", "BNazanin", "MjCordoba", tahoma, sans-serif; }
+/* Utilities */
+.font-sans   { font-family: var(--font-sans), ui-sans-serif, system-ui; }
+.font-serif  { font-family: var(--font-serif), Georgia, serif; }
 
-/* Accent color utilities */
-.text-accent { color: var(--accent); }
-.border-accent { border-color: var(--accent); }
+/* Default Persian text */
+.font-fa, .bnazanin { font-family: "BNazanin", "B Nazanin", Tahoma, sans-serif; }
+
+/* Cordoba (for mottos/headings) */
+.font-cordoba, .mjcordoba { font-family: "MJCordoba", serif; }
+
+/* Accent helpers (optional if not using Tailwind theme) */
+.text-accent        { color: var(--accent); }
+.border-accent      { border-color: var(--accent); }
 .hover\:text-accent:hover { color: var(--accent); }
-.bg-accent { background-color: var(--accent); }
+.bg-accent          { background-color: var(--accent); }
 
-html {
-    scroll-behavior: smooth;
-  }
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
 
-/* Ensure list looks clean in RTL */
+/* Clean lists in RTL blocks that use BNazanin */
 .bnazanin ul { list-style: none; padding: 0; margin: 0; }
-  /* mobile bottom; desktop top-right with safe-areas */
-./* Mobile: bottom-right; Desktop (md+): top-right — both safe-area aware */
-.menu-anchor{
+
+/* Mobile: bottom-right; Desktop: top-right — safe-area aware */
+.menu-anchor {
   position: fixed;
   z-index: 12000;
   right: max(1rem, env(safe-area-inset-right));
   bottom: max(1rem, env(safe-area-inset-bottom));
 }
-@media (min-width: 768px){
-  .menu-anchor{
+@media (min-width: 768px) {
+  .menu-anchor {
     bottom: auto;
     top: max(1rem, env(safe-area-inset-top));
   }
-}
-.mjcordoba {
-  font-family: "MJ Cordoba", serif;
 }

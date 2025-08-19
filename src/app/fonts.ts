@@ -1,23 +1,19 @@
-// src/app/fonts.ts
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 
-export const fontSans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-// 🟩 BNazanin from public/fonts
+// BNazanin (default Persian UI font)
 export const fontFa = localFont({
-  src: "/fonts/B-NAZANIN.TTF",   // << in /public/fonts
+  src: [
+    { path: "./fonts/BNazanin.ttf", weight: "400", style: "normal" },
+  ],
   variable: "--font-fa",
   display: "swap",
 });
 
-// MJ-Cordoba from public/fonts
+// MJ Cordoba (headings/mottos like "بزودی")
 export const fontCordoba = localFont({
-  src: "/fonts/MJ-Cordoba.ttf",
+  src: [
+    { path: "./fonts/Mj_Cordoba.ttf", weight: "400", style: "normal" },
+  ],
   variable: "--font-cordoba",
   display: "swap",
 });

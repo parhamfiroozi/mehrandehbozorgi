@@ -1,5 +1,5 @@
-// src/app/(lang)/[locale]/layout.tsx
 import type { ReactNode } from "react";
+import { fontFa } from "../../fonts"; // adjust path
 
 export default function LocaleLayout({
   children,
@@ -11,8 +11,9 @@ export default function LocaleLayout({
   const isFa = params.locale === "fa";
 
   return (
+    
     <html lang={params.locale} dir={isFa ? "rtl" : "ltr"}>
-      <body className={isFa ? "font-fa" : "font-sans"}>{children}</body>
+      <body className={fontFa.className}>{children}</body>
     </html>
   );
 }
